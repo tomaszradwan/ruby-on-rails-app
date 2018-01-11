@@ -1,1 +1,0 @@
-Application created in Ruby on Rails.
