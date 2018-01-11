@@ -1,0 +1,15 @@
+<p>Find me in app/views/test/index.html.erb</p>
+<h1>Test#index</h1>
+
+<p>Variable from controller: <%= @test_index %> </p>
+
+<hr>
+
+<p> 
+	<% @names.each do |n| %>
+		<%= "Hello in Ruby on Rails #{n.capitalize}" %>
+		<hr>
+	<% end %>
+</p>
+
+<p><%= link_to("Link to 'navigation'", {:action => 'navigation'}) %></p>
