@@ -12,4 +12,13 @@
 	<% end %>
 </p>
 
-<p><%= link_to("Link to 'navigation'", {:action => 'navigation'}) %></p>
+<p><%= link_to("Link to 'navigation' page", {:action => 'navigation'}) %></p>
+
+<hr>
+
+Id: <%= @id %>
+Page: <%= @page %>
+
+<hr>
+<%= params.inspect %>
+<hr>

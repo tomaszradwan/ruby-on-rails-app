@@ -5,6 +5,9 @@ class TestController < ApplicationController
   def index
   	@test_index = "Some text."
   	@names = ['john', 'zenon', 'anna']
+
+  	@id = params[:id].to_i
+  	@page = params[:page].to_i
   end
 
   def hello

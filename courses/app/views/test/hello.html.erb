@@ -9,4 +9,12 @@
 	<%= "Hello #{imie}" %>
 </p>
 
-<p><%= link_to("Back", {:action => 'navigation'}) %></p>
+<p><%= link_to("Back to navigation", {:action => 'navigation'}) %></p>
+
+<p>
+<%= "Parameter ID: " + params[:id] %>
+<br/>
+Parameter page: <%=  params[:page] %>
+</p>
+
+Parameter page + 10(int): <%=  params[:page].to_i + 10 %> <!-- .to_i - convertion to integer -->

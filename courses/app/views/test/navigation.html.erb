@@ -1,7 +1,8 @@
 <p>Find me in app/views/test/navigation.html.erb</p>
 <h1>Test#navigation</h1>
 
-<p><a href="hello">Link to page 'Hello' HTML href:</a></p> 
+<p><a href="hello?id=2&strona=3">Link to page 'Hello' HTML href:</a></p> 
 
-<p><%= link_to("Link to page 'Hello' RoR link_to:", {:action => 'hello'}) %></p>
-<p><%= link_to("Link to 'Index' RoR link_to", {:action => 'index'}) %></p>
+<p><%= link_to("Link to page 'Hello' (RoR link_to:)", {:action => 'hello', :id => 2, :page => 3}) %></p>
+
+<p><%= link_to("Link to page 'Index' (RoR link_to)", {:action => 'index', :id => 21, :page => 343}) %></p>
