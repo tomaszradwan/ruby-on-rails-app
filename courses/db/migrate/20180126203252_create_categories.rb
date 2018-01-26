@@ -3,7 +3,7 @@ class CreateCategories < ActiveRecord::Migration[5.1]
     create_table :categories do |t|
     	t.string "name"
     	t.integer "position"
-    	t.boolean "visibility", :default=>true
+    	t.boolean "visibility", :default => true
       t.timestamps
     end
   end

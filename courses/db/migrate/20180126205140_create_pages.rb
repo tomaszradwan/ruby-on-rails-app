@@ -4,7 +4,7 @@ class CreatePages < ActiveRecord::Migration[5.1]
     	t.integer "category_id"
     	t.string "name"
     	t.integer "position"
-    	t.boolean "visibility", :default=>true
+    	t.boolean "visibility", :default => true
       t.timestamps
     end
     add_index("pages", "category_id")
