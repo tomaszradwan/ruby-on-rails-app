@@ -1,5 +1,4 @@
 <h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
 
 <hr>
 
@@ -22,9 +21,9 @@
 		<td><%= c.visibility ? 'Yes' : 'No' %></td>
 		<td><%= c.pages.size %></td>
 		<td>
-			<%= link_to("Show", "#{}") %>
-			<%= link_to("Edit", "#{}") %>
-			<%= link_to("Delete", "#{}") %>
+			<%= link_to('Show', {:action => 'show', :id => c.id}) %>
+			<%= link_to('Edit', {:action => 'edit', :id => c.id}) %>
+			<%= link_to('Delete', {:action => 'delete', :id => c.id}) %>
 		</td>
 	</tr>
 <% end %>	

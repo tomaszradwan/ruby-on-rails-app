@@ -1,2 +1,30 @@
 <h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+
+<hr>
+
+<h1>Edit Category</h1>
+
+<%= form_for((:category), :url => {:action => 'update', :id => @category.id}, :method => 'post') do |f| %>
+	<table>
+		<tr>
+			<th><%= f.label(:name) %></th>
+			<td><%= f.text_field(:name) %></td>
+		</tr>
+		<tr>
+			<th><%= f.label(:position) %></th>
+			<td><%= f.select(:position, 1..@counter) %></td>
+		</tr>
+		<tr>
+			<th><%= f.label(:visibility, 'Is it visible?') %></th>
+			<td><%= f.check_box(:visibility) %></td>
+		</tr>
+	</table>
+
+	<div>
+		<%= submit_tag('Update') %>
+	</div>
+<% end %>
+
+<br>
+
+<%= link_to('Back to main page', {:action=> 'index'}) %>

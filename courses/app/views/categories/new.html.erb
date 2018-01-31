@@ -1,11 +1,10 @@
 <h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
 
 <hr>
 
 <h1>New Category</h1>
 
-<%= form_for(:category_form, :url => {:action => 'create'}, method: (:get)) do |f| %>
+<%= form_for((:category), :url => {:action => 'create'}, method: (:get)) do |f| %>
 	<table>
 		<tr>
 			<th><%= f.label(:name) %></th>
@@ -26,4 +25,6 @@
 	</div>
 <% end %>
 
-<%= link_to('Back', {:action=> 'index'}) %>
+<br>
+
+<%= link_to('Back to main page', {:action=> 'index'}) %>

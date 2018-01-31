@@ -6,17 +6,12 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @category = Category.find(params[:id])
   end
 
   def new
     @category_form = Category.new({:name => 'Put category name'})
     @counter = Category.count + 1
-  end
-
-  def edit
-  end
-
-  def delete
   end
 
   def create
@@ -29,7 +24,31 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+    @category = Category.find(params[:id])
+    @counter = Category.count
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update_attributes(category_params)
+      redirect_to(:action => 'show', :id => @category.id)
+    else
+      @counter = Category.count
+      render('edit')
+    end
+  end  
+
+  def delete
+    @category = Category.find(params[:id])  
+  end
+
+  def remove
+    category = Category.find(params[:id]).destroy
+    redirect_to(:action => 'index')  
+  end  
+
   def category_params
-    params.require(:category_form).permit(:name, :position, :visibility)
+    params.require(:category).permit(:name, :position, :visibility)
   end
 end
