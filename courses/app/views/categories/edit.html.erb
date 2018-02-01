@@ -5,24 +5,12 @@
 <h1>Edit Category</h1>
 
 <%= form_for((:category), :url => {:action => 'update', :id => @category.id}, :method => 'post') do |f| %>
-	<table>
-		<tr>
-			<th><%= f.label(:name) %></th>
-			<td><%= f.text_field(:name) %></td>
-		</tr>
-		<tr>
-			<th><%= f.label(:position) %></th>
-			<td><%= f.select(:position, 1..@counter) %></td>
-		</tr>
-		<tr>
-			<th><%= f.label(:visibility, 'Is it visible?') %></th>
-			<td><%= f.check_box(:visibility) %></td>
-		</tr>
-	</table>
 
-	<div>
+<%= render(:partial => 'form', :locals => {:f => f}) %>
+
+<div>
 		<%= submit_tag('Update') %>
-	</div>
+</div>
 <% end %>
 
 <br>
