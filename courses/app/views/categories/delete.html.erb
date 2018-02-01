@@ -1,17 +1,21 @@
-<h1>Categories#delete</h1>
+<div class="hero-unit">
+	<h1>Categories#delete</h1>
 
-<hr>
+	<hr>
 
-<h1>Delete Category</h1>
+	<h1>Delete Category</h1>
 
-<%= form_for(:category_delete, :url => {:action => 'remove', :id => @category.id}, :method => 'post') do |f| %>
-	<p>Are you sure you want to delete this position?</p>
-	<p><%= @category.name %></p>
-	<div>
-		<%= submit_tag('Delete') %>
-	</div>
-<% end %>
+	<%= form_for(:category_delete, :url => {:action => 'remove', :id => @category.id}, :method => 'post') do |f| %>
+		<div style="padding: 15px">
+		<p><b>Are you sure you want to delete this position?</b></p>
+			<p><%= @category.name %></p>
+		</div>
+		<div>
+			<%= submit_tag('Delete',  :class => 'btn btn-danger') %>
+		</div>
+	<% end %>
 
-<br>
+	<br>
 
-<%= link_to('Back to main page', {:action=> 'index'}) %>
+	<%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+</div>

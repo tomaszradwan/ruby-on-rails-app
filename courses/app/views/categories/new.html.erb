@@ -1,18 +1,20 @@
-<h1>Categories#new</h1>
+<div class="hero-unit">
+	<h1>Categories#new</h1>
 
-<hr>
+	<hr>
 
-<h1>New Category</h1>
+	<h1>New Category</h1>
 
-<%= form_for((:category), :url => {:action => 'create'}, method: (:get)) do |f| %>
+	<%= form_for((:category), :url => {:action => 'create'}, method: (:get)) do |f| %>
 
-<%= render(:partial => 'form', :locals => {:f => f}) %>
+	<%= render(:partial => 'form', :locals => {:f => f}) %>
 
-<div>
-		<%= submit_tag('Create') %>
+	<div>
+			<%= submit_tag('Create', :class => 'btn btn-primary') %>
+	</div>
+	<% end %>
+
+	<br/>
+
+	<%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
 </div>
-<% end %>
-
-<br>
-
-<%= link_to('Back to main page', {:action=> 'index'}) %>

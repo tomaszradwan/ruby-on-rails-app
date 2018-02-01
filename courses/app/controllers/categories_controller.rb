@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
-  layout false
-
+  # layout false
+  layout 'admin'
   def index
     @category = Category.sort
   end
@@ -17,6 +17,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
+      flash[:notice] = 'Category created.'
       redirect_to(:action => 'index')
     else
       @counter = Category.count + 1
@@ -32,6 +33,7 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update_attributes(category_params)
+      flash[:notice] = 'Category updated.'
       redirect_to(:action => 'show', :id => @category.id)
     else
       @counter = Category.count
@@ -45,6 +47,7 @@ class CategoriesController < ApplicationController
 
   def remove
     category = Category.find(params[:id]).destroy
+    flash[:notice] = 'Category deleted.'
     redirect_to(:action => 'index')  
   end  
 

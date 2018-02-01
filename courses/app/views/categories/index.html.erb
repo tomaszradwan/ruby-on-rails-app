@@ -1,30 +1,32 @@
-<h1>Categories#index</h1>
+<div class="hero-unit">
+	<h1>Categories#index</h1>
 
-<hr>
+	<hr>
 
-<%= link_to("Add new category", {:action => 'new'})  %>
+	<%= link_to("Add new category", {:action => 'new'}, :class => 'btn btn-mini btn-primary')  %>
 
-<p>Count categories: <%= @category.size %></p>
+	<p style="text-align: right;">Count categories: <%= @category.size %></p>
 
-<table>
-	<tr>
-		<th>Position</th>
-		<th>Category</th>
-		<th>Visibility</th>
-		<th>Page</th>
-		<th>Action</th>
-	</tr>
-<% @category.each do |c| %>
-	<tr>
-		<td><%= c.position %></td>
-		<td><%= c.name %></td>
-		<td><%= c.visibility ? 'Yes' : 'No' %></td>
-		<td><%= c.pages.size %></td>
-		<td>
-			<%= link_to('Show', {:action => 'show', :id => c.id}) %>
-			<%= link_to('Edit', {:action => 'edit', :id => c.id}) %>
-			<%= link_to('Delete', {:action => 'delete', :id => c.id}) %>
-		</td>
-	</tr>
-<% end %>	
-</table>
+	<table class="table table-striped">
+		<tr class="info">
+			<th>Position</th>
+			<th>Category</th>
+			<th>Visibility</th>
+			<th>Page</th>
+			<th>Action</th>
+		</tr>
+	<% @category.each do |c| %>
+		<tr>
+			<td><%= c.position %></td>
+			<td><%= c.name %></td>
+			<td class="center"><%= visibility_icon(c.visibility) %></td>
+			<td class="center"><%= c.pages.size %></td>
+			<td class="action">
+				<%= link_to('Show', {:action => 'show', :id => c.id}, :class => 'btn btn-xs btn-default') %>
+				<%= link_to('Edit', {:action => 'edit', :id => c.id}, :class => 'btn btn-xs btn-primary') %>
+				<%= link_to('Delete', {:action => 'delete', :id => c.id}, :class => 'btn btn-xs btn-danger') %>
+			</td>
+		</tr>
+	<% end %>	
+	</table>
+</div>

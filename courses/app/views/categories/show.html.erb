@@ -1,32 +1,34 @@
-<h1>Categories#show</h1>
+<div class="hero-unit">
+	<h1>Categories#show</h1>
 
-<hr>
+	<hr>
 
-<h1>Show Category</h1>
+	<h1>Show Category</h1>
 
-<table>
-	<tr>
-		<th>Name</th>
-		<td><%= @category.name %></td>
-	</tr>
-	<tr>
-		<th>Position</th>
-		<td><%= @category.position %></td>
-	</tr>
-	<tr>
-		<th>Visibility</th>
-		<td><%= @category.visibility ? 'Yes' : 'No' %></td>
-	</tr>
-	<tr>
-		<th>Created at</th>
-		<td><%= @category.created_at.strftime("%-d %b %H:%M") %></td>
-	</tr>
-	<tr>
-		<th>Updated at</th>
-		<td><%= @category.updated_at.strftime("%-d %b %H:%M") %></td>
-	</tr>
-</table>
+	<table>
+		<tr>
+			<th>Name</th>
+			<td><%= @category.name %></td>
+		</tr>
+		<tr>
+			<th>Position</th>
+			<td><%= @category.position %></td>
+		</tr>
+		<tr>
+			<th>Visibility</th>
+			<td><%= @category.visibility ? 'Yes' : 'No' %></td>
+		</tr>
+		<tr>
+			<th>Created at</th>
+			<td><%= @category.created_at.strftime("%-d %b %H:%M") %></td>
+		</tr>
+		<tr>
+			<th>Updated at</th>
+			<td><%= @category.updated_at.strftime("%-d %b %H:%M") %></td>
+		</tr>
+	</table>
 
-<br/>
+	<br/>
 
-<%= link_to('Back to main page', {:action=> 'index'}) %>
+	<%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-primary') %>
+</div>
