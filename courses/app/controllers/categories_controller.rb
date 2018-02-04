@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category_form = Category.new({:name => 'Put category name'})
+    @category = Category.new({:name => 'Put category name'})
     @counter = Category.count + 1
   end
 
