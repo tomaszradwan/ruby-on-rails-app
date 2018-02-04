@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def show
+    @page = Page.find(params[:id])
   end
 
   def new
@@ -42,7 +43,6 @@ class PagesController < ApplicationController
       @category = Category.order('position ASC')
       render('edit')
     end
-
   end
 
   def delete

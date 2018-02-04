@@ -1,2 +1,38 @@
-<h1>Pages#show</h1>
-<p>Find me in app/views/pages/show.html.erb</p>
+<div class="hero-unit">
+	<h1>Pages#show</h1>
+
+	<hr>
+
+	<h1>Show Page</h1>
+
+	<table class="table table-striped">
+		<tr>
+			<th>Name</th>
+			<td><%= @page.name %></td>
+		</tr>
+		<tr>
+			<th>Category ID</th>
+			<td><%= @page.category.name %></td>
+		</tr>
+		<tr>
+			<th>Position</th>
+			<td><%= @page.position %></td>
+		</tr>
+		<tr>
+			<th>Visibility</th>
+			<td><%= @page.visibility ? 'Yes' : 'No' %></td>
+		</tr>
+		<tr>
+			<th>Created at</th>
+			<td><%= @page.created_at.strftime("%-d %b %H:%M") %></td>
+		</tr>
+		<tr>
+			<th>Updated at</th>
+			<td><%= @page.updated_at.strftime("%-d %b %H:%M") %></td>
+		</tr>
+	</table>
+
+	<br/>
+
+	<%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-primary') %>
+</div>

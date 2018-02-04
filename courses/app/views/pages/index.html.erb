@@ -10,7 +10,8 @@
 	<table class="table table-striped">
 		<tr class="info">
 			<th>Position</th>
-			<th>Name</th>
+			<th>Category</th>
+			<th>Page name</th>
 			<th>Visibility</th>
 			<th>Articles</th>
 			<th>Action</th>
@@ -18,6 +19,7 @@
 	<% @pages.each do |p| %>
 		<tr>
 			<td><%= p.position %></td>
+			<td><%= p.category.name %></td>
 			<td><%= p.name %></td>
 			<td class="center"><%= visibility_icon(p.visibility) %></td>
 			<td class="center"><%= p.articles.size %></td>
