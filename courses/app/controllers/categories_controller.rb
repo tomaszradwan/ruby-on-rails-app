@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:notice] = 'Category created.'
+      flash[:notice] = "Category '#{@category.name}' created."
       redirect_to(:action => 'index')
     else
       @counter = Category.count + 1
@@ -33,7 +33,7 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update_attributes(category_params)
-      flash[:notice] = 'Category updated.'
+      flash[:notice] = "Category '#{@category.name}' updated."
       redirect_to(:action => 'show', :id => @category.id)
     else
       @counter = Category.count
@@ -47,7 +47,7 @@ class CategoriesController < ApplicationController
 
   def remove
     category = Category.find(params[:id]).destroy
-    flash[:notice] = 'Category deleted.'
+    flash[:notice] = "Category '#{category.name}' deleted."
     redirect_to(:action => 'index')  
   end  
 
