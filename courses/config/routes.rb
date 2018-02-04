@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get 'pages/new'
   get 'pages/create'
   get 'pages/edit'
+  post 'pages/update'
   get 'pages/delete'
 end

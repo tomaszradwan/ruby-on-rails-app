@@ -1,2 +1,20 @@
-<h1>Pages#edit</h1>
-<p>Find me in app/views/pages/edit.html.erb</p>
+<div class="hero-unit">
+	<h1>Pages#edit</h1>
+
+	<hr>
+
+	<h1>Edit Page: <%= @page.name %></h1>
+
+	<%= form_for((:page), :url => {:action => 'update', :id => @page.id}, :method => 'post') do |f| %>
+
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+
+		<div>
+				<%= submit_tag('Update', :class => 'btn btn-primary') %>
+		</div>
+	<% end %>
+
+	<br>
+
+	<%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+</div>
