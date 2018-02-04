@@ -18,7 +18,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_params)
     if @page.save
-      flash[:notice] = 'Page created.'
+      flash[:notice] = "Page '#{@page.name}' created."
       redirect_to(:action => 'index')
     else
       @counter = page.count + 1
@@ -46,6 +46,14 @@ class PagesController < ApplicationController
   end
 
   def delete
+    @page = Page.find(params[:id])
+  end
+
+  def remove
+    page = Page.find(params[:id]).destroy
+    flash[:notice] = "Page '#{page.name}' deleted."
+    redirect_to(:action => 'index')  
+
   end
 
   def page_params
