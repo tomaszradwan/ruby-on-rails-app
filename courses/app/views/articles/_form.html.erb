@@ -1,5 +1,9 @@
 <table class="table table-striped">
 	<tr>
+		<th><%= f.label(:page_id) %></th>
+		<td><%= f.select(:page_id, @page.map{|p| [p.name, p.id]}, :class => 'form-control') %></td>
+	</tr>
+	<tr>
 		<th><%= f.label(:name) %></th>
 		<td><%= f.text_field(:name, :class => 'form-control') %></td>
 	</tr>
@@ -10,5 +14,9 @@
 	<tr>
 		<th><%= f.label(:visibility, 'Is it visible?') %></th>
 		<td><%= f.check_box(:visibility) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:photos, 'Photo') %></th>
+		<td><%= f.file_field(:photos) %></td>
 	</tr>
 </table>
