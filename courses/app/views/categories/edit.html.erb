@@ -5,7 +5,7 @@
 
 	<h1>Edit Category</h1>
 
-	<%= form_for((:category), :url => {:action => 'update', :id => @category.id}, :method => 'post') do |f| %>
+	<%= form_for((:category), :url => {:action => 'update', :id => @category.id}, :method => 'POST') do |f| %>
 
 		<%= render(:partial => 'form', :locals => {:f => f}) %>
 

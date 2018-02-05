@@ -5,7 +5,7 @@
 
 	<h1>Edit Page: <%= @page.name %></h1>
 
-	<%= form_for((:page), :url => {:action => 'update', :id => @page.id}, :method => 'post') do |f| %>
+	<%= form_for((:page), :url => {:action => 'update', :id => @page.id}, :method => 'POST') do |f| %>
 
 		<%= render(:partial => 'form', :locals => {:f => f}) %>
 

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get 'articles/index'
   get 'articles/new'
-  get 'articles/create'
+  post 'articles/create'
   get 'articles/edit'
   get 'articles/delete'
   get 'articles/show'

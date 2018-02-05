@@ -33,6 +33,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:page_id, :name, :position, :visibility,:photos)
+    params.require(:articles).permit(:page_id, :name, :position, :visibility, :photos)
   end
 end
