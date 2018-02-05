@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   post 'pages/update'
   get 'pages/delete'
   post 'pages/remove'
+
+  get 'articles/index'
+  get 'articles/new'
+  get 'articles/edit'
+  get 'articles/delete'
+  get 'articles/show'
 end
