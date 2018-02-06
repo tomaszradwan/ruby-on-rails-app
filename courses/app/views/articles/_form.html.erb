@@ -1,7 +1,7 @@
 <table class="table table-striped">
 	<tr>
 		<th><%= f.label(:page_id) %></th>
-		<td><%= f.select(:page_id, @page.map{|p| [p.name, p.id]}, :class => 'form-control') %></td>
+		<td><%= collection_select(:articles, :page_id, @page, :id, :name) %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:name) %></th>
