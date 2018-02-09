@@ -1,11 +1,11 @@
 <div class="hero-unit">
-  <h1>Categories#edit</h1>
+  <h1>Article#edit</h1>
 
   <hr>
 
-  <h1>Edit Category</h1>
+  <h1>Edit Article: <%= @articles.name %></h1>
 
-  <%= form_for((:category), :url => {:action => 'update', :id => @category.id}, :method => 'POST') do |f| %>
+  <%= form_for(:articles, :url => {:action => 'update', :id => @articles.id}, :method => 'POST') do |f| %>
 
     <%= render(:partial => 'form', :locals => {:f => f}) %>
 

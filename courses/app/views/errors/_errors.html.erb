@@ -1,0 +1,17 @@
+<% if object && object.errors.size > 0 %>
+  <div class="bg-danger">
+    <table class="table">
+      <tr class="danger">
+        <td>Errors occurred while writing data, amount of errors: <%= object.errors.size %>
+          <br/>
+          Field | error message:
+        </td>
+      </tr>
+      <% object.errors.full_messages.each do |err| %>
+      <tr class="warning">
+        <td><b><%= err %></b></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+ <% end %>

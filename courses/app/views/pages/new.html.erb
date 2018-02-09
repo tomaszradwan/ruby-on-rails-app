@@ -1,20 +1,21 @@
 <div class="hero-unit">
-	<h1>Pages#new</h1>
+  <h1>Pages#new</h1>
 
-	<hr>
+  <hr>
 
-	<h1>New Page</h1>
+  <h1>New Page</h1>
 
-	<%= form_for((:page), :url => {:action => 'create'}, :method => 'GET') do |f| %>
+  <%= form_for(:pages, :url => {:action => 'create'}, :method => 'GET') do |f| %>
 
-		<%= render(:partial => 'form', :locals => {:f => f}) %>
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
 
-		<div>
-				<%= submit_tag('Create', :class => 'btn btn-primary') %>
-		</div>
-	<% end %>
+    <div>
+        <%= submit_tag('Create', :class => 'btn btn-primary') %>
+    </div>
+  <% end %>
 
-	<br/>
+  <br/>
 
-	<%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
 </div>
+

@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   # layout false
   layout 'admin'
+  
   def index
     @category = Category.sort
   end
@@ -10,13 +11,13 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Category.new({:name => 'Put category name'})
+    @category = Category.new({:name => "Put name of category"})
     @counter = Category.count + 1
   end
 
   def create
     @category = Category.new(category_params)
-    if @category.save
+     if @category.save
       flash[:notice] = "Category '#{@category.name}' created."
       redirect_to(:action => 'index')
     else
@@ -31,15 +32,15 @@ class CategoriesController < ApplicationController
   end
 
   def update
-      @category = Category.find(params[:id])
-      if @category.update_attributes(category_params)
-        flash[:notice] = "Category '#{@category.name}' updated."
-        redirect_to(:action => 'show', :id => @category.id)
-      else
-        @counter = Category.count
-        render('edit')
-      end
-  end  
+    @category = Category.find(params[:id])
+    if @category.update_attributes(category_params)
+      flash[:notice] = "Category '#{@category.name}' updated."
+      redirect_to(:action => 'show', :id => @category.id)
+    else
+      @counter = Category.count
+      render('edit')
+    end
+  end
 
   def delete
     @category = Category.find(params[:id])  
@@ -48,8 +49,8 @@ class CategoriesController < ApplicationController
   def remove
     category = Category.find(params[:id]).destroy
     flash[:notice] = "Category '#{category.name}' deleted."
-    redirect_to(:action => 'index')  
-  end  
+    redirect_to(:action => 'index')
+  end
 
   def category_params
     params.require(:category).permit(:name, :position, :visibility)

@@ -1,28 +1,26 @@
 <div class="hero-unit">
-  <h1>Pages#index</h1>
+  <h1>Articles#index</h1>
 
   <hr>
 
-  <%= link_to("Add new page", {:action => 'new'}, :class => 'btn btn-mini btn-primary')  %>
+  <%= link_to("Add new article", {:action => 'new'}, :class => 'btn btn-mini btn-primary')  %>
 
-  <p style="text-align: right;">Count pages: <%= @pages.size %></p>
+  <p style="text-align: right;">Count articles: <%= @articles.size %></p>
 
   <table class="table table-striped">
     <tr class="info">
       <th>Position</th>
-      <th>Category</th>
-      <th>Page name</th>
+      <th>Page</th>
+      <th>Articles name</th>
       <th>Visibility</th>
-      <th>Articles</th>
       <th>Action</th>
     </tr>
-  <% @pages.each do |p| %>
+  <% @articles.each do |p| %>
     <tr>
       <td><%= p.position %></td>
-      <td><%= p.category.name %></td>
+      <td><%= p.page.name %></td>
       <td><%= p.name %></td>
       <td class="center"><%= visibility_icon(p.visibility) %></td>
-      <td class="center"><%= p.articles.size %></td>
       <td class="action">
         <%= link_to('Show', {:action => 'show', :id => p.id}, :class => 'btn btn-xs btn-default') %>
         <%= link_to('Edit', {:action => 'edit', :id => p.id}, :class => 'btn btn-xs btn-primary') %>
@@ -32,3 +30,4 @@
   <% end %>
   </table>
 </div>
+

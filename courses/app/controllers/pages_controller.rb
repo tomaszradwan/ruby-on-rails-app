@@ -6,38 +6,38 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.find(params[:id])
+    @pages = Page.find(params[:id])
   end
 
   def new
-    @page = Page.new({:name => 'Put page name'})
+    @pages = Page.new({:name => "Put name of page"})
     @counter = Page.count + 1
     @category = Category.order('position ASC')
   end
 
   def create
-    @page = Page.new(page_params)
-    if @page.save
-      flash[:notice] = "Page '#{@page.name}' created."
+    @pages = Page.new(pages_params)
+    if @pages.save
+      flash[:notice] = "Page '#{@pages.name}' created."
       redirect_to(:action => 'index')
     else
-      @counter = page.count + 1
+      @counter = Page.count + 1
       @category = Category.order('position ASC')
       render('new')
     end
-  end 
+  end
 
   def edit
-    @page = Page.find(params[:id])
+    @pages = Page.find(params[:id])
     @counter = Page.count
     @category = Category.order('position ASC')
   end
 
   def update
-    @page = Page.find(params[:id])
-    if @page.update_attributes(page_params)
-      flash[:notice] = 'Page updated.'
-      redirect_to(:action => 'show', :id => @page.id)
+    @pages = Page.find(params[:id])
+    if @pages.update_attributes(pages_params)
+      flash[:notice] = "Page '#{@pages.name}' updated."
+      redirect_to(:action => 'show', :id => @pages.id)
     else
       @counter = Page.count
       @category = Category.order('position ASC')
@@ -46,17 +46,16 @@ class PagesController < ApplicationController
   end
 
   def delete
-    @page = Page.find(params[:id])
+    @pages = Page.find(params[:id])
   end
 
   def remove
-    page = Page.find(params[:id]).destroy
-    flash[:notice] = "Page '#{page.name}' deleted."
+    pages = Page.find(params[:id]).destroy
+    flash[:notice] = "Page '#{pages.name}' deleted."
     redirect_to(:action => 'index')  
-
   end
 
-  def page_params
-    params.require(:page).permit(:category_id, :name, :position, :visibility)
+  def pages_params
+    params.require(:pages).permit(:category_id, :name, :position, :visibility)
   end
 end

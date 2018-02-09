@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180208113305) do
+ActiveRecord::Schema.define(version: 20180208123328) do
+
+  create_table "articles", force: :cascade do |t|
+    t.integer "page_id"
+    t.string "name"
+    t.integer "position"
+    t.boolean "visibility", default: true
+    t.text "content", default: ""
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "position"
     t.boolean "visibility", default: true
     t.datetime "created_at", null: false
@@ -23,7 +37,7 @@ ActiveRecord::Schema.define(version: 20180208113305) do
   create_table "galleries", force: :cascade do |t|
     t.string "name"
     t.integer "position"
-    t.text "describe"
+    t.text "describe", default: ""
     t.boolean "visibility", default: false
     t.string "photo_file_name"
     t.string "photo_content_type"
@@ -48,7 +62,7 @@ ActiveRecord::Schema.define(version: 20180208113305) do
     t.string "name"
     t.integer "position"
     t.boolean "visibility", default: true
-    t.string "describe"
+    t.text "describe", default: ""
     t.string "photo_file_name"
     t.string "photo_content_type"
     t.integer "photo_file_size"
@@ -61,8 +75,8 @@ ActiveRecord::Schema.define(version: 20180208113305) do
     t.string "name", limit: 20
     t.string "surname", limit: 60
     t.string "user", limit: 30
-    t.string "email", limit: 100, default: "", null: false
-    t.string "phone", default: "", null: false
+    t.string "email", limit: 100, null: false
+    t.string "phone_number", default: "", null: false
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

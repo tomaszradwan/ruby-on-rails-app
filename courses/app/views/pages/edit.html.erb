@@ -1,20 +1,20 @@
 <div class="hero-unit">
-	<h1>Pages#edit</h1>
+  <h1>Pages#edit</h1>
 
-	<hr>
+  <hr>
 
-	<h1>Edit Page: <%= @page.name %></h1>
+  <h1>Edit Page: <%= @pages.name %></h1>
 
-	<%= form_for((:page), :url => {:action => 'update', :id => @page.id}, :method => 'POST') do |f| %>
+  <%= form_for(:pages, :url => {:action => 'update', :id => @pages.id}, :method => 'POST') do |f| %>
 
-		<%= render(:partial => 'form', :locals => {:f => f}) %>
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
 
-		<div>
-				<%= submit_tag('Update', :class => 'btn btn-primary') %>
-		</div>
-	<% end %>
+    <div>
+        <%= submit_tag('Update', :class => 'btn btn-primary') %>
+    </div>
+  <% end %>
 
-	<br>
+  <br>
 
-	<%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
 </div>

@@ -1,14 +1,14 @@
 <div class="hero-unit">
-  <h1>Categories#delete</h1>
+  <h1>Article#delete</h1>
 
   <hr>
 
-  <h1>Delete Category</h1>
+  <h1>Delete Article</h1>
 
-  <%= form_for(:category_delete, :url => {:action => 'remove', :id => @category.id}, :method => 'POST') do |f| %>
+  <%= form_for(:articles, :url => {:action => 'remove', :id => @articles.id}, :method => 'POST') do |f| %>
     <div style="padding: 15px">
     <p><b>Are you sure you want to delete this position?</b></p>
-      <p><%= @category.name %></p>
+      <p><%= @articles.name %></p>
     </div>
     <div>
       <%= submit_tag('Delete',  :class => 'btn btn-danger') %>

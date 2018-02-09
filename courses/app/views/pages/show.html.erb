@@ -1,38 +1,38 @@
 <div class="hero-unit">
-	<h1>Pages#show</h1>
+  <h1>Pages#show</h1>
 
-	<hr>
+  <hr>
 
-	<h1>Show Page</h1>
+  <h1>Show Page</h1>
 
-	<table class="table table-striped">
-		<tr>
-			<th>Name</th>
-			<td><%= @page.name %></td>
-		</tr>
-		<tr>
-			<th>Category ID</th>
-			<td><%= @page.category_id %></td>
-		</tr>
-		<tr>
-			<th>Position</th>
-			<td><%= @page.position %></td>
-		</tr>
-		<tr>
-			<th>Visibility</th>
-			<td><%= @page.visibility ? 'Yes' : 'No' %></td>
-		</tr>
-		<tr>
-			<th>Created at</th>
-			<td><%= @page.created_at.strftime("%-d %b %H:%M") %></td>
-		</tr>
-		<tr>
-			<th>Updated at</th>
-			<td><%= @page.updated_at.strftime("%-d %b %H:%M") %></td>
-		</tr>
-	</table>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <td><%= @pages.name %></td>
+    </tr>
+    <tr>
+      <th>Category</th>
+      <td><%= @pages.category.name %></td>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <td><%= @pages.position %></td>
+    </tr>
+    <tr>
+      <th>Visibility</th>
+      <td><%= @pages.visibility ? 'Yes' : 'No' %></td>
+    </tr>
+    <tr>
+      <th>Created at</th>
+      <td><%= @pages.created_at.strftime("%-d %b %H:%M") %></td>
+    </tr>
+    <tr>
+      <th>Updated at</th>
+      <td><%= @pages.updated_at.strftime("%-d %b %H:%M") %></td>
+    </tr>
+  </table>
 
-	<br/>
+  <br/>
 
-	<%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-primary') %>
+  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-primary') %>
 </div>
