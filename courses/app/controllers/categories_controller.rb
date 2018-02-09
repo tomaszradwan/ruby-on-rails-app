@@ -31,14 +31,14 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    @category = Category.find(params[:id])
-    if @category.update_attributes(category_params)
-      flash[:notice] = "Category '#{@category.name}' updated."
-      redirect_to(:action => 'show', :id => @category.id)
-    else
-      @counter = Category.count
-      render('edit')
-    end
+      @category = Category.find(params[:id])
+      if @category.update_attributes(category_params)
+        flash[:notice] = "Category '#{@category.name}' updated."
+        redirect_to(:action => 'show', :id => @category.id)
+      else
+        @counter = Category.count
+        render('edit')
+      end
   end  
 
   def delete
