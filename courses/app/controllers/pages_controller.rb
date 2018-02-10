@@ -22,7 +22,7 @@ class PagesController < ApplicationController
     else
       @counter = Page.count + 1
       @category = Category.order('position ASC')
-      flash[:notice] = "WARNING!!! You cannot create the page!"
+      flash[:danger] = "WARNING!!! You cannot create the page!"
       render('new')
     end
   end
