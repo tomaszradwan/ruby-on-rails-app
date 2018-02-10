@@ -13,6 +13,10 @@
         <div class="alert alert-success" style="text-align: center;">
           <%= flash[:notice] %>
         </div>
+      <% elsif !flash[:danger].blank? %>    
+        <div class="alert alert-danger" style="text-align: center;">
+          <%= flash[:danger] %>
+        </div>
       <% end %> 
       <%= yield %>
     </div>

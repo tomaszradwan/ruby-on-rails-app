@@ -11,17 +11,17 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Category.new({:name => "Put name of category"})
     @counter = Category.count + 1
   end
 
   def create
     @category = Category.new(category_params)
-     if @category.save
+     if !@category.name.blank? && @category.save
       flash[:notice] = "Category '#{@category.name}' created."
       redirect_to(:action => 'index')
     else
       @counter = Category.count + 1
+      flash[:danger] = "WARNING!!! You cannot create the category!"
       render('new')
     end
   end
