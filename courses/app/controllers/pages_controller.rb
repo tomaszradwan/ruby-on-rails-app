@@ -10,7 +10,6 @@ class PagesController < ApplicationController
   end
 
   def new
-    @pages = Page.new({:name => "Put name of page"})
     @counter = Page.count + 1
     @category = Category.order('position ASC')
   end
@@ -23,6 +22,7 @@ class PagesController < ApplicationController
     else
       @counter = Page.count + 1
       @category = Category.order('position ASC')
+      flash[:notice] = "WARNING!!! You cannot create the page!"
       render('new')
     end
   end

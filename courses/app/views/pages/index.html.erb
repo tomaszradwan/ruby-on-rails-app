@@ -19,7 +19,7 @@
   <% @pages.each do |p| %>
     <tr>
       <td><%= p.position %></td>
-      <td><%= p.category.name %></td>
+      <td><%= category_name(p)%></td>
       <td><%= p.name %></td>
       <td class="center"><%= visibility_icon(p.visibility) %></td>
       <td class="center"><%= p.articles.size %></td>
