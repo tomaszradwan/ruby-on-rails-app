@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @articles = Article.new({:name => "Put name of article"})
+    @articles = Article.new()
     @page = Page.order('position ASC')
     @counter = Article.count + 1
   end
