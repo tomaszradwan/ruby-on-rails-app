@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-     if !@category.name.blank? && @category.save
+     if @category.save
       flash[:notice] = "Category '#{@category.name}' created."
       redirect_to(:action => 'index')
     else
