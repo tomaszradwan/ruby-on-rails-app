@@ -7,7 +7,7 @@
 
   <%= form_for(:category_delete, :url => {:action => 'remove', :id => @category.id}, :method => 'POST') do |f| %>
     <div style="padding: 15px">
-    <p><b>Are you sure you want to delete this position?</b></p>
+    <p class="text-warning"><b>Are you sure you want to delete this position?</b></p>
       <p><%= @category.name %></p>
     </div>
     <div>

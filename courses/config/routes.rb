@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+
   # get 'photos/index'
   # get 'photos/show'
   # get 'photos/new'
   # get 'photos/edit'
   # get 'photos/delete'
+  
   # get 'galleries/index'
   # get 'galleries/show'
   # get 'galleries/new'

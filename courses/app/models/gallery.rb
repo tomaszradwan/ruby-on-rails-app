@@ -11,7 +11,6 @@ class Gallery < ApplicationRecord
   validates_attachment :photo,
                        content_type: { content_type: /^image\/(png|gif|jpeg|jpg)/ },
                        size: { less_than: 1.megabyte }
-                       # styles: { medium: "500x500>", thumb: "200x200>" }
 
   validates :name,
             :presence => true,

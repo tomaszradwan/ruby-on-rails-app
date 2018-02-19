@@ -7,7 +7,7 @@
 
   <%= form_for(:articles, :url => {:action => 'remove', :id => @articles.id}, :method => 'POST') do |f| %>
     <div style="padding: 15px">
-    <p><b>Are you sure you want to delete this position?</b></p>
+    <p class="text-warning"><b>Are you sure you want to delete this position?</b></p>
       <p><%= @articles.name %></p>
     </div>
     <div>

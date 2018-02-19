@@ -1,2 +1,20 @@
-<h1>Photos#edit</h1>
-<p>Find me in app/views/photos/edit.html.erb</p>
+<div class="hero-unit">
+  <h1>Photos#edit</h1>
+
+  <hr>
+
+  <h1>Edit Photo: <%= @photos.name %></h1>
+
+  <%= form_for(:photos, :url => {:action => 'update', :id => @photos.id}, :method => 'POST') do |f| %>
+
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div>
+        <%= submit_tag('Update', :class => 'btn btn-primary') %>
+    </div>
+  <% end %>
+
+  <br>
+
+  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+</div>

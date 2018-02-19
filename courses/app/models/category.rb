@@ -9,5 +9,5 @@ class Category < ApplicationRecord
   validates :name,
             :presence => true,
             :length => { minimum: 2, maximum: 60, 
-              :message => 'Minimum length 2 characters, maximum length 60 characters.'}
+            :message => 'Minimum length 2 characters, maximum length 60 characters.'}
 end
