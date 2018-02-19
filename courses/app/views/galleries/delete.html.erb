@@ -1,0 +1,21 @@
+<div class="hero-unit">
+  <h1>Gallery#delete</h1>
+
+  <hr>
+
+  <h1>Delete Gallery</h1>
+
+  <%= form_for(:galleries, :url => {:action => 'remove', :id => @galleries.id}, :method => 'POST') do |f| %>
+    <div style="padding: 15px">
+    <p><b>Are you sure you want to delete this position?</b></p>
+      <p><%= @galleries.name %></p>
+    </div>
+    <div>
+      <%= submit_tag('Delete',  :class => 'btn btn-danger') %>
+    </div>
+  <% end %>
+
+  <br>
+
+  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+</div>

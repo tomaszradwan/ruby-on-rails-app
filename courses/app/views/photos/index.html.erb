@@ -1,0 +1,34 @@
+<div class="hero-unit">
+  <h1>Photos#index</h1>
+
+  <hr>
+
+  <%= link_to("Add new photo", {:action => 'new'}, :class => 'btn btn-mini btn-primary')  %>
+
+  <p style="text-align: right;">Count photos: <%= @photos.size %></p>
+
+  <table class="table table-striped">
+    <tr class="info">
+      <th>Position</th>
+      <th>Name</th>
+      <th>Photo</th>
+      <th>Description[...]</th>
+      <th>Visibility</th>
+      <th>Action</th>
+    </tr>
+  <% @photos.each do |p| %>
+    <tr>
+      <td><%= p.position %></td>
+      <td><%= p.name %></td>
+      <td><%= image_tag(p.photo.url(:thumb)) %></td>
+      <td><%= truncate(p.describe, :length => 10, :omission => '[...]') %></td>
+      <td class="center"><%= visibility_icon(p.visibility) %></td>
+      <td class="action">
+        <%= link_to('Show', {:action => 'show', :id => p.id}, :class => 'btn btn-xs btn-default') %>
+        <%= link_to('Edit', {:action => 'edit', :id => p.id}, :class => 'btn btn-xs btn-primary') %>
+        <%= link_to('Delete', {:action => 'delete', :id => p.id}, :class => 'btn btn-xs btn-danger') %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

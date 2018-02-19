@@ -41,7 +41,6 @@ class ArticlesController < ApplicationController
       @counter = Article.count
       render('edit')
     end
-
   end
 
   def delete
@@ -54,7 +53,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article '#{articles.name}' deleted."
       redirect_to(:action => 'index')
     else
-      flash[:notice] = "Error during remove Article '#{articles.name}'."
+      flash[:notice] = "Error! during remove Article '#{articles.name}'."
       render
     end
   end

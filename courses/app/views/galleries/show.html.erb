@@ -1,0 +1,42 @@
+<div class="hero-unit">
+  <h1>Galleries#show</h1>
+
+  <hr>
+
+  <h1>Show Gallery</h1>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Gallery name</th>
+      <td><%= @galleries.name %></td>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <td><%= @galleries.position %></td>
+    </tr>
+    <tr>
+      <th>Visibility</th>
+      <td><%= @galleries.visibility ? 'Yes' : 'No' %></td>
+    </tr>
+    <tr>
+      <th>Photo</th>
+      <td><%= image_tag(@galleries.photo) %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @galleries.describe %></td>
+    </tr>
+    <tr>
+      <th>Created at</th>
+      <td><%= @galleries.created_at.strftime("%-d %b %H:%M") %></td>
+    </tr>
+    <tr>
+      <th>Updated at</th>
+      <td><%= @galleries.updated_at.strftime("%-d %b %H:%M") %></td>
+    </tr>
+  </table>
+
+  <br/>
+
+  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-primary') %>
+</div>

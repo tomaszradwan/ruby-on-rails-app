@@ -1,0 +1,33 @@
+<%= error(@photos)%>
+<table class="table table-striped">
+  <tr>
+    <th><%= f.label(:name, 'Photo name') %></th>
+    <td><%= f.text_field(:name, :class => 'form-control', :placeholder => "Put the name of photo.") %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:gallery_id) %></th>
+    <td><%= f.select(:gallery_id, @gallery.map{|g| [g.name, g.id]}, :class => 'form-control') %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:position) %></th>
+    <td><%= f.select(:position, 1..@counter, :class => 'form-control') %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:visibility, 'Is it visible?') %></th>
+    <td><%= f.check_box(:visibility) %></td>
+  </tr>
+<% if !@photos.photo.blank? %>
+  <tr>
+    <th>Photo</th>
+    <td><%= image_tag(@photos.photo) %></td>
+  </tr>
+<% end %>
+  <tr>
+    <th><%= f.label(:photo, "Photo") %></th>
+    <td><%= f.file_field(:photo) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:describe) %></th>
+    <td><%= f.text_area(:describe, :class => 'form-control') %></td>
+  </tr>
+</table>
