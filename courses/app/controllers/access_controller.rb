@@ -1,4 +1,6 @@
 class AccessController < ApplicationController
+  layout 'admin'
+  
   def index
   end
 

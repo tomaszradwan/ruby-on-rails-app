@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  match ':controller(/:action(/:id))', :via => [:get, :post]
+  get 'admin', :to => 'access#index'
 
-  get 'access/index'
-
-  get 'access/login'
+  # get 'access/index'
+  # get 'access/login'
 
   # get 'photos/index'
   # get 'photos/show'
@@ -36,5 +37,4 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  match ':controller(/:action(/:id))', :via => [:get, :post]
 end
