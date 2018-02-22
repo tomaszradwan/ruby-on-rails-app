@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   # layout false
   layout 'admin'
+  before_action :check_log
   
   def index
     @category = Category.sort

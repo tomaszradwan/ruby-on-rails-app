@@ -1,6 +1,7 @@
 class GalleriesController < ApplicationController
   layout 'admin'
-
+  before_action :check_log
+  
   def index
     @galleries = Gallery.sort
   end

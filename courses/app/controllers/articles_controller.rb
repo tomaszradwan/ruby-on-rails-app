@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   layout 'admin'
+  before_action :check_log
 
   def index
     @articles = Article.sort

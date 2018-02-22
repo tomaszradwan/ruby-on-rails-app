@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   layout 'admin'
-
+  before_action :check_log
+  
   def index
     @photos = Photo.sort
   end
