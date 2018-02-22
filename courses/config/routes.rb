@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   match ':controller(/:action(/:id))', :via => [:get, :post]
   get 'admin', :to => 'access#index'
+  
+  # get 'users/index'
+  # get 'users/new'
+  # get 'users/edit'
+  # get 'users/delete'
 
   # get 'access/index'
   # get 'access/login'
