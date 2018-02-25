@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "User '#{@user.name}' created."
+      flash[:notice] = "User account '#{@user.name}' created."
       redirect_to(:action  => 'index')
     else
       render('new')
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:notice] = "User '#{@user.name}' updated."
+      flash[:notice] = "User account '#{@user.name}' updated."
       redirect_to(:action => 'index')
     else
       render('edit')
@@ -35,6 +35,15 @@ class UsersController < ApplicationController
   end
 
   def delete
+    @user = User.find(params[:id])
+  end
+
+  def remove
+    user = User.find(params[:id])
+    if user.destroy
+      flash[:notice] = "User account '#{user.name}' deleted."
+      redirect_to(:action => 'index')
+    end
   end
 
   private

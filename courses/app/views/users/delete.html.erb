@@ -1,2 +1,21 @@
-<h1>Users#delete</h1>
-<p>Find me in app/views/users/delete.html.erb</p>
+<div class="hero-unit">
+  <h1>User#delete</h1>
+
+  <hr>
+
+  <h1>Delete User</h1>
+
+  <%= form_for(:user, :url => {:action => 'remove', :id => @user.id}, :method => 'POST') do |f| %>
+    <div style="padding: 15px">
+    <p class="text-warning"><b>Are you sure you want to delete User?</b></p>
+      <p><%= @user.name %></p>
+    </div>
+    <div>
+      <%= submit_tag('Delete',  :class => 'btn btn-danger') %>
+    </div>
+  <% end %>
+
+  <br>
+
+  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+</div>
