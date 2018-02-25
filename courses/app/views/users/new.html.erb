@@ -1,2 +1,20 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="hero-unit">
+  <h1>User#new</h1>
+
+  <hr>
+
+  <h1>New User</h1>
+
+  <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div>
+        <%= submit_tag('Create', :class => 'btn btn-primary') %>
+    </div>
+  <% end %>
+
+  <br/>
+
+  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+</div>

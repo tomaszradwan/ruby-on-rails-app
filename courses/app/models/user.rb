@@ -4,20 +4,22 @@ class User < ApplicationRecord
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 
   validates   :name,
-              :presence => true
+              :presence => true,
+              :length => { :within => 3..60, :message => 'User name between 3 - 60 characters.' }
 
   validates   :surname,
-              :presence => true
+              :presence => true,
+              :length => { :within => 3..60, :message => 'User surname between 3 - 60 characters.' }
 
   validates   :user,
-              :length => { :within => 4..30, :message => 'User name between 4 - 30 characters.' },
-              :uniqueness => true
+              :uniqueness => true,
+              :length => { :within => 4..30, :message => 'User login between 4 - 30 characters.' }
 
   validates   :email,
               :presence => true,
-              :length => { :maximum => 50},
-              :format => EMAIL_REGEX, 
-              :confirmation => true
+              :format => EMAIL_REGEX,
+              :confirmation => true,
+              :length => { :maximum => 50}
 
   scope :sort, lambda{order('surname ASC , name ASC')}
 end
