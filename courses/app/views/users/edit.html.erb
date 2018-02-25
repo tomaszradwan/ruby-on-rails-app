@@ -1,2 +1,20 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="hero-unit">
+  <h1>User#edit</h1>
+
+  <hr>
+
+  <h1>Edit User: <%= @user.name %></h1>
+
+  <%= form_for(:user, :url => {:action => 'update', :id => @user.id}, :method => 'POST') do |f| %>
+
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div>
+        <%= submit_tag('Update', :class => 'btn btn-primary') %>
+    </div>
+  <% end %>
+
+  <br>
+
+  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+</div>
