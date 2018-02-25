@@ -3,9 +3,9 @@
 
   <hr>
 
-  <h1>Edit Page: <%= @pages.name %></h1>
+  <h1>Edit Page: <%= @page.name %></h1>
 
-  <%= form_for(:pages, :url => {:action => 'update', :id => @pages.id}, :method => 'POST') do |f| %>
+  <%= form_for(:page, :url => {:action => 'update', :id => @page.id}, :method => 'POST') do |f| %>
 
     <%= render(:partial => 'form', :locals => {:f => f}) %>
 
@@ -16,5 +16,5 @@
 
   <br>
 
-  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+  <%= link_to('Back to main page', {:action=> 'index', :category_id => @page.category_id}, :class => 'btn btn-warning') %>
 </div>

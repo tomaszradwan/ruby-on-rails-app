@@ -5,7 +5,7 @@
 
   <h1>New Page</h1>
 
-  <%= form_for(:pages, :url => {:action => 'create'}, :method => 'GET') do |f| %>
+  <%= form_for(:page, :url => {:action => 'create'}, :method => 'GET') do |f| %>
 
     <%= render(:partial => 'form', :locals => {:f => f}) %>
 
@@ -16,6 +16,5 @@
 
   <br/>
 
-  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+  <%= link_to('Back to main page', {:action=> 'index', :category_id => @category_id}, :class => 'btn btn-warning') %>
 </div>
-

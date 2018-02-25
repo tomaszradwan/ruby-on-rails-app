@@ -3,23 +3,25 @@ class PagesController < ApplicationController
   before_action :check_log
   
   def index
-    @pages = Page.sort
+    @category = Category.find(params[:category_id])
+    @pages = @category.pages.sort
   end
 
   def show
-    @pages = Page.find(params[:id])
+    @page = Page.find(params[:id])
   end
 
   def new
     @counter = Page.count + 1
     @category = Category.order('position ASC')
+    @category_id = params[:category_id]
   end
 
   def create
-    @pages = Page.new(pages_params)
-    if @pages.save
-      flash[:notice] = "Page '#{@pages.name}' created."
-      redirect_to(:action => 'index')
+    @page = Page.new(page_params)
+    if @page.save
+      flash[:notice] = "Page '#{@page.name}' created."
+      redirect_to(:action => 'index', :category_id => @page.category_id)
     else
       @counter = Page.count + 1
       @category = Category.order('position ASC')
@@ -29,16 +31,16 @@ class PagesController < ApplicationController
   end
 
   def edit
-    @pages = Page.find(params[:id])
+    @page = Page.find(params[:id])
     @counter = Page.count
     @category = Category.order('position ASC')
   end
 
   def update
-    @pages = Page.find(params[:id])
-    if @pages.update_attributes(pages_params)
-      flash[:notice] = "Page '#{@pages.name}' updated."
-      redirect_to(:action => 'show', :id => @pages.id)
+    @page = Page.find(params[:id])
+    if @page.update_attributes(page_params)
+      flash[:notice] = "Page '#{@page.name}' updated."
+      redirect_to(:action => 'show', :id => @page.id)
     else
       @counter = Page.count
       @category = Category.order('position ASC')
@@ -47,16 +49,18 @@ class PagesController < ApplicationController
   end
 
   def delete
-    @pages = Page.find(params[:id])
+    @page = Page.find(params[:id])
   end
 
   def remove
-    pages = Page.find(params[:id]).destroy
-    flash[:notice] = "Page '#{pages.name}' deleted."
-    redirect_to(:action => 'index')  
+    page = Page.find(params[:id]).destroy
+    flash[:notice] = "Page '#{page.name}' deleted."
+    redirect_to(:action => 'index', :category_id => page.category_id)
   end
 
-  def pages_params
-    params.require(:pages).permit(:category_id, :name, :position, :visibility)
+  private
+
+  def page_params
+    params.require(:page).permit(:category_id, :name, :position, :visibility)
   end
 end

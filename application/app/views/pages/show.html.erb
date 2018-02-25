@@ -8,31 +8,31 @@
   <table class="table table-striped">
     <tr>
       <th>Name</th>
-      <td><%= @pages.name %></td>
+      <td><%= @page.name %></td>
     </tr>
     <tr>
       <th>Category</th>
-      <td><%= category_name(@pages) %></td>
+      <td><%= category_name(@page) %></td>
     </tr>
     <tr>
       <th>Position</th>
-      <td><%= @pages.position %></td>
+      <td><%= @page.position %></td>
     </tr>
     <tr>
       <th>Visibility</th>
-      <td><%= @pages.visibility ? 'Yes' : 'No' %></td>
+      <td><%= @page.visibility ? 'Yes' : 'No' %></td>
     </tr>
     <tr>
       <th>Created at</th>
-      <td><%= @pages.created_at.strftime("%-d %b %H:%M") %></td>
+      <td><%= @page.created_at.strftime("%-d %b %H:%M") %></td>
     </tr>
     <tr>
       <th>Updated at</th>
-      <td><%= @pages.updated_at.strftime("%-d %b %H:%M") %></td>
+      <td><%= @page.updated_at.strftime("%-d %b %H:%M") %></td>
     </tr>
   </table>
 
   <br/>
 
-  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-primary') %>
+  <%= link_to('Back to main page', {:action=> 'index', :category_id => @page.category_id}, :class => 'btn btn-primary') %>
 </div>
