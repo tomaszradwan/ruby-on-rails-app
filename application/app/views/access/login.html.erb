@@ -1,19 +1,8 @@
-<div class='login'>
-  <h2>Login</h2>
-  <%= form_tag(:action => 'loginuser') do %>
-    <table>
-      <tr>
-        <td><%= label_tag(:user, 'User: ') %></td>
-        <td><%= text_field_tag(:user) %></td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:password, 'Password: ') %></td>
-        <td><%= password_field_tag(:password) %></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td><%= submit_tag('Log in') %></td>
-      </tr>
-    </table>
+<div class='wrapper'>
+  <%= form_tag({:action => 'loginuser'}, {:class => "form-signin"}) do %>
+  <h2 class="form-signin-heading">Login</h2>
+      <input type="text" class="form-control" name="user" placeholder="User" required="" autofocus="" />
+      <input type="password" class="form-control" name="password" placeholder="Password" required="" />
+      <%= submit_tag 'Log in', class: "btn btn-lg btn-primary btn-block" %>
   <% end %>
 </div>

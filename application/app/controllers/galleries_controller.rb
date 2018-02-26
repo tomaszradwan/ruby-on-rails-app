@@ -58,6 +58,8 @@ class GalleriesController < ApplicationController
     end
   end
 
+  private
+  
   def galleries_params
     params.require(:galleries).permit( :name, :position, :visibility, :describe, :photo)
   end

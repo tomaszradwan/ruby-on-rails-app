@@ -12,4 +12,12 @@ module ApplicationHelper
   def error(object)
     render(:partial =>'errors/errors', :locals => {:object => object})    
   end
+
+  def user_logged_in
+    unless session[:user_id]
+      return false
+    else
+      return true
+    end
+  end
 end

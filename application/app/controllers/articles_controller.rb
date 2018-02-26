@@ -59,6 +59,8 @@ class ArticlesController < ApplicationController
     end
   end
 
+  private
+
   def articles_params
     params.require(:articles).permit(:page_id, :name, :position, :visibility, :content, :photo)
   end
