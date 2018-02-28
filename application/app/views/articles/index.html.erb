@@ -1,6 +1,6 @@
 <div class="hero-unit">
   <h1>Articles#index</h1>
-
+  <%= link_to(' Back to pages ', {:controller => 'pages', :action => 'index', :category_id => @category_id}, :class => 'btn btn-xs btn-default') %>
   <hr>
 
   <%= link_to("Add new article", {:action => 'new'}, :class => 'btn btn-mini btn-primary')  %>
@@ -11,6 +11,7 @@
     <tr class="info">
       <th>Position</th>
       <th>Article name</th>
+      <th>Category</th>
       <th>Page</th>
       <th>Visibility</th>
       <th>Action</th>
@@ -19,12 +20,13 @@
     <tr>
       <td><%= a.position %></td>
       <td><%= a.name %></td>
+      <td><%= @category.name %></td>
       <td><%= page_name(a) %></td>
       <td class="center"><%= visibility_icon(a.visibility) %></td>
       <td class="action">
-        <%= link_to('Show', {:action => 'show', :id => a.id}, :class => 'btn btn-xs btn-default') %>
-        <%= link_to('Edit', {:action => 'edit', :id => a.id}, :class => 'btn btn-xs btn-primary') %>
-        <%= link_to('Delete', {:action => 'delete', :id => a.id}, :class => 'btn btn-xs btn-danger') %>
+        <%= link_to('Show', {:action => 'show', :id => a.id, :category_id => @category_id, :page_id => params[:id]}, :class => 'btn btn-xs btn-default') %>
+        <%= link_to('Edit', {:action => 'edit', :id => a.id, :category_id => @category_id, :page_id => params[:id]}, :class => 'btn btn-xs btn-primary') %>
+        <%= link_to('Delete', {:action => 'delete', :id => a.id, :category_id => @category_id, :page_id => params[:id]}, :class => 'btn btn-xs btn-danger') %>
       </td>
     </tr>
   <% end %>

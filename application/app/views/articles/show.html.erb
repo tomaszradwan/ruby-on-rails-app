@@ -42,5 +42,5 @@
 
   <br/>
 
-  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-primary') %>
+  <%= link_to('Back to main page', {:action=> 'index', :category_id => @category_id, :id => params[:page_id]}, :class => 'btn btn-primary') %>
 </div>

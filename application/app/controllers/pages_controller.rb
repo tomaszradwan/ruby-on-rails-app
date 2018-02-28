@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   layout 'admin'
-  before_action :check_log
+  before_action :check_log, :category_id
   
   def index
     @category = Category.find(params[:category_id])
@@ -62,5 +62,9 @@ class PagesController < ApplicationController
 
   def page_params
     params.require(:page).permit(:category_id, :name, :position, :visibility)
+  end
+
+  def category_id
+    @category_id = params[:category_id]
   end
 end

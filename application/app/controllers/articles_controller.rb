@@ -1,9 +1,11 @@
 class ArticlesController < ApplicationController
   layout 'admin'
-  before_action :check_log
+  before_action :check_log, :category_id
 
   def index
-    @articles = Article.sort
+    @pages = Page.find(params[:id])
+    @articles = @pages.articles.sort
+    @category = Category.find(params[:category_id])
   end
 
   def show
@@ -37,7 +39,7 @@ class ArticlesController < ApplicationController
     @articles = Article.find(params[:id])
     if @articles.update_attributes(articles_params)
       flash[:notice] = "Page '#{@articles.name}' updated."
-      redirect_to(:action => 'show', :id => @articles.id)
+      redirect_to(:action => 'show', :id => @articles.id, :category_id => @category_id)
     else
       @counter = Article.count
       render('edit')
@@ -63,5 +65,9 @@ class ArticlesController < ApplicationController
 
   def articles_params
     params.require(:articles).permit(:page_id, :name, :position, :visibility, :content, :photo)
+  end
+
+  def category_id
+    @category_id = params[:category_id]
   end
 end
