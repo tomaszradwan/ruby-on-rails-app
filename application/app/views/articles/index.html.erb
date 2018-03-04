@@ -3,7 +3,7 @@
   <%= link_to(' Back to pages ', {:controller => 'pages', :action => 'index', :category_id => @category_id}, :class => 'btn btn-xs btn-default') %>
   <hr>
 
-  <%= link_to("Add new article", {:action => 'new'}, :class => 'btn btn-mini btn-primary')  %>
+  <%= link_to("Add new article", {:action => 'new', :page_id => @pages, :category_id => @category_id}, :class => 'btn btn-mini btn-primary')  %>
 
   <p style="text-align: right;">Count articles: <%= @articles.size %></p>
 
@@ -24,9 +24,9 @@
       <td><%= page_name(a) %></td>
       <td class="center"><%= visibility_icon(a.visibility) %></td>
       <td class="action">
-        <%= link_to('Show', {:action => 'show', :id => a.id, :category_id => @category_id, :page_id => params[:id]}, :class => 'btn btn-xs btn-default') %>
-        <%= link_to('Edit', {:action => 'edit', :id => a.id, :category_id => @category_id, :page_id => params[:id]}, :class => 'btn btn-xs btn-primary') %>
-        <%= link_to('Delete', {:action => 'delete', :id => a.id, :category_id => @category_id, :page_id => params[:id]}, :class => 'btn btn-xs btn-danger') %>
+        <%= link_to('Show', {:action => 'show', :id => a.id, :category_id => @category_id, :page_id => @pages}, :class => 'btn btn-xs btn-default') %>
+        <%= link_to('Edit', {:action => 'edit', :id => a.id, :category_id => @category_id, :page_id => @pages}, :class => 'btn btn-xs btn-primary') %>
+        <%= link_to('Delete', {:action => 'delete', :id => a.id, :category_id => @category_id, :page_id => @pages}, :class => 'btn btn-xs btn-danger') %>
       </td>
     </tr>
   <% end %>

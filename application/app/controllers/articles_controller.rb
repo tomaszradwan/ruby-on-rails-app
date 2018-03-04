@@ -22,7 +22,8 @@ class ArticlesController < ApplicationController
       @articles = Article.new(articles_params)
     if @articles.save
       flash[:notice] = "Article '#{@articles.name}' created successfully."
-      redirect_to(:action => 'index')
+      redirect_to(:action => 'index', :id => @articles.id, :category_id => @category_id,
+        :page_id => params[:page_id])
     else
       @counter = Article.count + 1
       @page = Page.order('position ASC')
@@ -39,7 +40,8 @@ class ArticlesController < ApplicationController
     @articles = Article.find(params[:id])
     if @articles.update_attributes(articles_params)
       flash[:notice] = "Page '#{@articles.name}' updated."
-      redirect_to(:action => 'show', :id => @articles.id, :category_id => @category_id)
+      redirect_to(:action => 'show', :id => @articles.id, :category_id => @category_id,
+        :page_id => params[:page_id])
     else
       @counter = Article.count
       render('edit')
@@ -54,7 +56,7 @@ class ArticlesController < ApplicationController
     articles = Article.find(params[:id])
     if articles.destroy
       flash[:notice] = "Article '#{articles.name}' deleted."
-      redirect_to(:action => 'index')
+      redirect_to(:action => 'index', :id => params[:page_id], :category_id => @category_id)
     else
       flash[:notice] = "Error! during remove Article '#{articles.name}'."
       render
