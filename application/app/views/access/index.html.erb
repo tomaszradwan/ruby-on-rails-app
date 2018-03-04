@@ -1,10 +1,4 @@
 <div class="hero-unit">
-  <h3>Administrator Panel</h3>
-  <%= link_to("Categories", {:controller => 'categories'}, :class => 'btn btn-default') %>
-  <%= link_to("Page", {:controller => 'pages'}, :class => 'btn btn-default') %>
-  <%= link_to("Article", {:controller => 'articles'}, :class => 'btn btn-default') %>
-  <%= link_to("Galleries", {:controller => 'galleries'}, :class => 'btn btn-default') %>
-  <%= link_to("Photo", {:controller => 'photos'}, :class => 'btn btn-default') %>
-  <%= link_to("User", {:controller => 'users'}, :class => 'btn btn-default') %>
-  <%= link_to("Log out", {:action => 'logout'}, :class => 'btn btn-default') %>
+  <h2>Hello <%= @user.name %></h2>
+  <h4>Last time you were here: <%= @last_login %></h4>
 </div>
