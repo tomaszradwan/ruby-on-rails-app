@@ -1,4 +1,4 @@
 Application created in Ruby on Rails.
 
-Project status:
+Project status
 => in progress
