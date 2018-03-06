@@ -5,7 +5,7 @@
 
   <h1>Edit Photo: <%= @photos.name %></h1>
 
-  <%= form_for(:photos, :url => {:action => 'update', :id => @photos.id}, :method => 'POST') do |f| %>
+  <%= form_for(:photos, :url => {:action => 'update', :id => @photos.id, :gallery_id => params[:gallery_id]}, :method => 'POST') do |f| %>
 
     <%= render(:partial => 'form', :locals => {:f => f}) %>
 
@@ -16,5 +16,5 @@
 
   <br>
 
-  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-warning') %>
+  <%= link_to('Back to main page', {:action=> 'index', :gallery_id => params[:gallery_id]}, :class => 'btn btn-warning') %>
 </div>

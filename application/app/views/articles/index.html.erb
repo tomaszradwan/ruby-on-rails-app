@@ -1,6 +1,7 @@
 <div class="hero-unit">
   <h1>Articles#index</h1>
   <%= link_to(' Back to pages ', {:controller => 'pages', :action => 'index', :category_id => @category_id}, :class => 'btn btn-xs btn-default') %>
+
   <hr>
 
   <%= link_to("Add new article", {:action => 'new', :page_id => @pages, :category_id => @category_id}, :class => 'btn btn-mini btn-primary')  %>

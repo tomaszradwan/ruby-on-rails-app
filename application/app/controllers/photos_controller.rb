@@ -1,9 +1,9 @@
 class PhotosController < ApplicationController
   layout 'admin'
-  before_action :check_log
+  before_action :check_log, :gallery_id
   
   def index
-    @photos = Photo.sort
+    @photos = @gallery.photos.sort
   end
 
   def show
@@ -20,7 +20,7 @@ class PhotosController < ApplicationController
     @photos = Photo.new(photos_params)
     if @photos.save
       flash[:notice] = "Photo '#{@photos.name}' created successfully."
-      redirect_to(:action => 'index')
+      redirect_to(:action => 'index', :gallery_id => @gallery.id)
     else
       @counter = Photo.count + 1
       @gallery = Gallery.order('position ASC')
@@ -38,7 +38,7 @@ class PhotosController < ApplicationController
     @photos = Photo.find(params[:id])
     if @photos.update_attributes(photos_params)
       flash[:notice] = "Photo '#{@photos.name}' updated."
-      redirect_to(:action => 'show', :id => @photos.id)
+      redirect_to(:action => 'show', :id => @photos.id, :gallery_id => @gallery.id)
     else
       @counter = Photo.count + 1
       @gallery = Gallery.order('position ASC')
@@ -54,7 +54,7 @@ class PhotosController < ApplicationController
     photos = Photo.find(params[:id])
     if photos.destroy
       flash[:notice] = "Gallery '#{photos.name}' deleted."
-      redirect_to(:action => 'index')
+      redirect_to(:action => 'index', :gallery_id => @gallery.id)
     else
       flash[:danger] = "Error! during remove Photo '#{photos.name}'."
       render
@@ -65,5 +65,11 @@ class PhotosController < ApplicationController
 
   def photos_params
     params.require(:photos).permit(:name, :gallery_id, :position, :visibility, :photo, :describe)
+  end
+
+  def gallery_id
+    if params[:gallery_id]
+      @gallery = Gallery.find(params[:gallery_id])
+    end
   end
 end

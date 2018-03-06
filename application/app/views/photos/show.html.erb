@@ -1,4 +1,4 @@
-<div class="hero-unit">
+  <div class="hero-unit">
   <h1>Photos#show</h1>
 
   <hr>
@@ -38,5 +38,5 @@
 
   <br/>
 
-  <%= link_to('Back to main page', {:action=> 'index'}, :class => 'btn btn-primary') %>
+  <%= link_to('Back to main page', {:action=> 'index', :gallery_id => params[:gallery_id]}, :class => 'btn btn-primary') %>
 </div>
