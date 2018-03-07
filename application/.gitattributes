@@ -1,2 +1,3 @@
 *.rb linguist-language=Ruby
-app/assets/* linguist-vendored
+*.css linguist-language=Ruby
+app/assets/static/* linguist-vendored
